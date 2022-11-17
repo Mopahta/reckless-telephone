@@ -22,7 +22,7 @@ public class PhoneNumber {
 
     private boolean isPublic = false;
 
-    @OneToMany(mappedBy = "phoneNumber")
-    @ToString.Exclude
-    private List<WorkingPlace> workingPlace;
+    @ManyToOne
+    @JoinColumn(name = "dep_id")
+    private Department department;
 }

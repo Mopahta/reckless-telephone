@@ -24,10 +24,11 @@ public class Worker {
     @NonNull
     private String patronymic;
 
-    @OneToMany(mappedBy = "worker")
-    @ToString.Exclude
-    private List<WorkingPlace> workingPlace;
+    @ManyToOne
+    @JoinColumn(name = "dep_id")
+    private Department department;
 
     private String workingMail;
+    @NonNull
     private String position;
 }
