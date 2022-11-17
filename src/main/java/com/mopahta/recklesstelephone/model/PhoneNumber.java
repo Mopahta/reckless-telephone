@@ -1,9 +1,8 @@
-package by.mopahta.recklesstelephone.model;
+package com.mopahta.recklesstelephone.model;
 
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Getter
@@ -18,7 +17,8 @@ public class PhoneNumber {
     private Long id;
 
     @NonNull
-    private String number;
+    @Column(name = "tel_number")
+    private String telNumber;
 
     private boolean isPublic = false;
 

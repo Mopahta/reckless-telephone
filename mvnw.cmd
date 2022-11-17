@@ -9,7 +9,7 @@
 @REM
 @REM    https://www.apache.org/licenses/LICENSE-2.0
 @REM
-@REM Unless required by applicable law or agreed to in writing,
+@REM Unless required com applicable law or agreed to in writing,
 @REM software distributed under the License is distributed on an
 @REM "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
 @REM KIND, either express or implied.  See the License for the
@@ -37,7 +37,7 @@
 @echo off
 @REM set title of command window
 title %0
-@REM enable echoing by setting MAVEN_BATCH_ECHO to 'on'
+@REM enable echoing com setting MAVEN_BATCH_ECHO to 'on'
 @if "%MAVEN_BATCH_ECHO%" == "on"  echo %MAVEN_BATCH_ECHO%
 
 @REM set %HOME% to equivalent of $HOME

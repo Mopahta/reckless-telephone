@@ -1,6 +1,6 @@
-package by.mopahta.recklesstelephone.repository;
+package com.mopahta.recklesstelephone.repository;
 
-import by.mopahta.recklesstelephone.model.Worker;
+import com.mopahta.recklesstelephone.model.Worker;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,7 +1,6 @@
-package by.mopahta.recklesstelephone.model;
+package com.mopahta.recklesstelephone.model;
 
 import lombok.*;
-import net.bytebuddy.build.ToStringPlugin;
 
 import javax.persistence.*;
 import java.util.List;
@@ -28,5 +27,6 @@ public class Department {
     private List<Worker> workers;
 
     @NonNull
-    private String name;
+    @Column(name = "dep_name")
+    private String depName;
 }

@@ -1,4 +1,4 @@
-package by.mopahta.recklesstelephone;
+package com.mopahta.recklesstelephone;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

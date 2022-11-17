@@ -1,4 +1,4 @@
-package by.mopahta.recklesstelephone.dto;
+package com.mopahta.recklesstelephone.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

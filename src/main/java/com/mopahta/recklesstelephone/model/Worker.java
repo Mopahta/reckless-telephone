@@ -1,9 +1,8 @@
-package by.mopahta.recklesstelephone.model;
+package com.mopahta.recklesstelephone.model;
 
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Getter
@@ -18,11 +17,8 @@ public class Worker {
     private Long id;
 
     @NonNull
-    private String name;
-    @NonNull
-    private String surname;
-    @NonNull
-    private String patronymic;
+    @Column(name = "worker_name")
+    private String workerName;
 
     @ManyToOne
     @JoinColumn(name = "dep_id")
@@ -30,5 +26,6 @@ public class Worker {
 
     private String workingMail;
     @NonNull
-    private String position;
+    @Column(name = "job_title")
+    private String jobTitle;
 }

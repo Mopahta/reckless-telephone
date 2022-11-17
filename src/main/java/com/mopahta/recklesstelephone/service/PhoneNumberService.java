@@ -1,6 +1,6 @@
-package by.mopahta.recklesstelephone.service;
+package com.mopahta.recklesstelephone.service;
 
-import by.mopahta.recklesstelephone.model.PhoneNumber;
+import com.mopahta.recklesstelephone.model.PhoneNumber;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,9 +11,9 @@ public class PhoneNumberService {
 
     public List<String> getAvailablePhoneNumbers(List<PhoneNumber> phoneNumbers, boolean getPrivateNumbers) {
         if (getPrivateNumbers) {
-            return phoneNumbers.stream().map(PhoneNumber::getNumber).collect(Collectors.toList());
+            return phoneNumbers.stream().map(PhoneNumber::getTelNumber).collect(Collectors.toList());
         }
         return phoneNumbers.stream().filter(PhoneNumber::isPublic)
-                .map(PhoneNumber::getNumber).collect(Collectors.toList());
+                .map(PhoneNumber::getTelNumber).collect(Collectors.toList());
     }
 }

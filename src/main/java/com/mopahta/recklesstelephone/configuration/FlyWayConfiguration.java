@@ -1,4 +1,4 @@
-package by.mopahta.recklesstelephone.configuration;
+package com.mopahta.recklesstelephone.configuration;
 
 import org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration;
 import org.springframework.context.annotation.Configuration;
