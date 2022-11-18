@@ -29,10 +29,10 @@ public class IndexController {
         return "index";
     }
 
-    @GetMapping("private")
+    @GetMapping("nonprivate")
     private String privateNumbers(SearchInfoDTO searchInfoDTO, Model model) {
-        model.addAttribute("departments", departmentService.getDepartmentsDTO(
-                departmentService.getDepartments(), true)
+        model.addAttribute("departments",
+                searchService.searchForDepartments(searchInfoDTO, false)
         );
         return "index";
     }

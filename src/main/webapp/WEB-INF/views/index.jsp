@@ -41,6 +41,8 @@
                 <c:forEach items="${department.workers}" var="worker">
                     <tr>
                         <td>${worker.name}</td>
+                        <td>${worker.workingMail}</td>
+                        <td>${worker.position}</td>
                     </tr>
                 </c:forEach>
                 </table>

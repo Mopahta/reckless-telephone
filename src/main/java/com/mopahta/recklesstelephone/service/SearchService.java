@@ -8,10 +8,10 @@ import com.mopahta.recklesstelephone.repository.impl.SearchRepositoryImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 @Service
@@ -20,6 +20,13 @@ public class SearchService {
 
     private final DepartmentService departmentService;
     private final SearchRepositoryImpl searchRepository;
+
+    public static <T> Predicate<T> distinctByKey(
+            Function<? super T, ?> keyExtractor) {
+
+        Map<Object, Boolean> seen = new ConcurrentHashMap<>();
+        return t -> seen.putIfAbsent(keyExtractor.apply(t), Boolean.TRUE) == null;
+    }
 
     public List<DepartmentInfoDTO> searchForDepartments(SearchInfoDTO searchInfo, boolean getPrivateNumbers) {
         searchInfo.trimFields();
@@ -37,6 +44,7 @@ public class SearchService {
             departments.add(new DepartmentInfoDTO(
                     depName,
                     queriedDetails.stream().filter(x -> x.getDepName().equals(depName))
+                            .filter(distinctByKey(QueriedDetails::getWorkerName))
                             .map(x -> new WorkerInfoDTO(x.getWorkerName(), x.getWorkingMail(), x.getJobTitle()))
                             .collect(Collectors.toList()),
                     queriedDetails.stream().filter(x -> x.getDepName().equals(depName))
@@ -47,17 +55,8 @@ public class SearchService {
                                 return true;
                             })
                             .map(QueriedDetails::getNumber).distinct().collect(Collectors.toList())));
-        }
 
-//        String prevDepName = queriedDetails.get(0).getDepName();
-//        for (int i = 0; i <= )
-//        departments = queriedDetails.stream().map(
-//                x -> new DepartmentInfoDTO(x.getDepName(),
-//                        queriedDetails.stream().filter(y -> y.getDepName().equals(x.getDepName()))
-//                                .map(t -> new WorkerInfoDTO(t.getName(), t.getWorkingMail(), t.getPosition()))
-//                                .collect(Collectors.toList()),
-//                        queriedDetails.stream().map(QueriedDetails::getNumber).collect(Collectors.toList())))
-//                .collect(Collectors.toList());
+        }
 
         return departments;
     }
